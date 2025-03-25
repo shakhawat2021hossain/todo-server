@@ -1,0 +1,14 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Editor & System Files
+.vscode/
+.DS_Store
