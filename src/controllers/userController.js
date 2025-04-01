@@ -1,4 +1,5 @@
 const { createUser, findByEmail } = require('../models/userModel')
+const jwt = require("jsonwebtoken")
 
 const register = async (req, res) => {
     try {
@@ -10,8 +11,9 @@ const register = async (req, res) => {
         if (isExist) return res.status(400).send({ msg: "user already exist" })
 
         const user = await createUser(name, email, password)
+        const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '7d' })
         console.log(user);
-        res.status(201).json(user)
+        res.status(201).json({ user, token, msg: "registered successfully" })
     }
     catch (error) {
         console.log(error);
@@ -28,7 +30,9 @@ const login = async (req, res) => {
 
         if (user.password !== password) return res.status(400).send({ msg: "invalid credentials" })
 
-        res.status(200).json(user)
+        const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: '7d' })
+
+        res.status(200).json({ token, msg: "login successfully" })
     }
     catch (error) {
         console.log(error);
