@@ -12,3 +12,4 @@ logs/
 # Editor & System Files
 .vscode/
 .DS_Store
+.vercel
