@@ -19,5 +19,5 @@ A backend API for a Todo app built using Node.js, Express, PostgreSQL, and JWT a
 3. Create a .env file using .env.example as a reference and add your environment variables.
 4. Start the development server:
   ```sh
-  npm run dev
+   npm run dev
 
