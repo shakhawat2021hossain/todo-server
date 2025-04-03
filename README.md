@@ -23,6 +23,3 @@ A backend API for a Todo app built using Node.js, Express, PostgreSQL, and JWT a
 5. Run in production mode:
       ```sh
       npm start
-
-
-
