@@ -5,6 +5,7 @@ const todoList = async (req, res) => {
         const userId = req.user.id
 
         const todos = await getTodos(userId)
+        if (todos.length === 0) return res.status(404).send({ msg: "no available task for the user" })
         res.json(todos)
 
     }
